@@ -124,7 +124,9 @@ public class HomeController extends Controller {
             for (WikipediaDoc doc : docs) {
                 logger.debug(doc.toString());
             }
-            return ok();
+
+//            return ok();
+            return ok(views.html.search.render(docs));
         } catch (IOException e) {
             e.printStackTrace();
             return internalServerError();

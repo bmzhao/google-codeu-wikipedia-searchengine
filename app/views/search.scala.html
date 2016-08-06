@@ -1,0 +1,11 @@
+@(docs: List[WikipediaDoc])
+
+<h1>Here are your results!</h1>
+
+<ul>
+@for(doc <- docs) {
+    <li>@doc.getTitle()</li>
+    <li>@doc.getUrl()</li>
+    <li>@doc.getHighlight()</li>
+}
+</ul>
