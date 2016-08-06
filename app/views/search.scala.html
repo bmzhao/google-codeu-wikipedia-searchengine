@@ -1,11 +1,29 @@
 @(docs: List[WikipediaDoc])
 
-<h1>Here are your results!</h1>
 
-<ul>
-@for(doc <- docs) {
-    <li>@doc.getTitle()</li>
-    <li>@doc.getUrl()</li>
-    <li>@doc.getHighlight()</li>
+@main(title = "CodeU Wiki Search") {
+    <h1 class="grey-text text-darken-4">Search Results</h1>
+    <ul class="result">
+    @for(doc <- docs) {
+        <div class="row">
+            <div class="col s12 m10">
+                <div class="card horizontal blue-grey lighten-5">
+                    <div class="card-content">
+                        @if(doc.titleExists()) {
+                            <li class="card-title blue-text text-darken-3"><a href="@doc.getUrl()">@doc.getTitle()</a></li>
+                        }
+                        @if(doc.urlExists()) {
+                            <li class="url green-text text-darken-2">@doc.getUrl()</li>
+                        }
+                        @if(doc.highlightExists()) {
+                            <li class="highlights grey-text text-darken-3">
+                            @Html(doc.getHighlight())
+                            </li>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </ul>
 }
-</ul>

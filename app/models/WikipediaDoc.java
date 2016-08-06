@@ -34,4 +34,14 @@ public class WikipediaDoc {
                 ", highlight='" + highlight + '\'' +
                 '}';
     }
+
+    public boolean titleExists() {
+        return title != null && !title.isEmpty();
+    }
+    public boolean urlExists() {
+        return url != null && !url.isEmpty();
+    }
+    public boolean highlightExists() {
+        return highlight != null && !highlight.isEmpty();
+    }
 }

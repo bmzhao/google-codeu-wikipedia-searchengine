@@ -112,7 +112,7 @@ public class HomeController extends Controller {
                         JsonArray highlightContentJson = highlightJson.getAsJsonArray("content");
                         StringBuilder highlightedMarkup = new StringBuilder();
                         for (JsonElement element : highlightContentJson) {
-                            highlightedMarkup.append(element.getAsString()).append('\n');
+                            highlightedMarkup.append(element.getAsString()).append("...").append('\n');
                         }
                         highlight = highlightedMarkup.toString();
                     }
@@ -121,11 +121,6 @@ public class HomeController extends Controller {
                 docs.add(wikipediaDoc);
             }
 
-            for (WikipediaDoc doc : docs) {
-                logger.debug(doc.toString());
-            }
-
-//            return ok();
             return ok(views.html.search.render(docs));
         } catch (IOException e) {
             e.printStackTrace();
