@@ -1,0 +1,33 @@
+logs
+target/
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+### PlayFramework template
+# Ignore Play! working directory #
+bin/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/target
+/target
+tmp/
+test-result
+server.pid
+*.eml
+/dist/
+.cache
+
+.idea/
+*.iml
+.sbtserver/
+project/project/
+project/target/
+project/.sbtserver
+project/.sbtserver.lock
+
