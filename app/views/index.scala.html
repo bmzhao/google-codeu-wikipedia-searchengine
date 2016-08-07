@@ -10,11 +10,14 @@
  * argument is an `Html` object containing the body of the page.
  *@
 @main("CodeSearch") {
-
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    
-
+    <form method="get" action="/search" class="search-container">
+        <div class="wrap">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?" name="query">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
 }

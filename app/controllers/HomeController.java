@@ -38,7 +38,7 @@ public class HomeController extends Controller {
                     " \"query\": { \n"+
                     " \"multi_match\" : {\n"+
                     " \"query\" : \"%s\",\n"+
-                    " \"fields\" : [ \"title^3\", \"content\", \"url^3\" ] \n"+
+                    " \"fields\" : [ \"title^3\", \"content^2\", \"url\" ] \n"+
                     " }\n"+
                     " },\n"+
                     " \"highlight\" : {\n"+
