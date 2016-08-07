@@ -8,6 +8,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<link href="">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <head>
         @* Here's where we render the page title `String`. *@
         <title>@title</title>
@@ -34,5 +37,17 @@
         @* And here's where we render the `Html` object containing
          * the page content. *@
         @content
+
+        <form method="get" action="/search" class="search-container">                  
+            <div class="wrap">
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="What are you looking for?" name="query">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                </div>
+            </div>
+        </form> 
+        
     </body>
 </html>
