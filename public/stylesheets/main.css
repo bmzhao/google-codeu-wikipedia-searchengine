@@ -6,6 +6,11 @@
     box-pack:center;
     box-align:center;
 }
+
+#cardResult {
+	padding-left: 10%;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body{
@@ -15,7 +20,7 @@ body{
 
 .search {
   width: 100%;
-  position: relative
+  position: relative;
 }
 
 .searchTerm {
@@ -47,11 +52,28 @@ body{
   font-size: 20px;
 }
 
+.landingTitle {
+  width: 50%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00B4CC;
+}
+
 /*Resize the wrap to see the search bar change!*/
 .wrap{
   width: 30%;
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.searchWrap {
+  width: 30%;
+  position: absolute;
+  top: 10%;
+  left: 65%;
   transform: translate(-50%, -50%);
 }

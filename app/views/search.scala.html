@@ -1,29 +1,68 @@
 @(docs: List[WikipediaDoc])
 
+<!DOCTYPE html>
+<html lang="en">
+    <link href="">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
 
-@main(title = "CodeU Wiki Search") {
-    <h1 class="grey-text text-darken-4">Search Results</h1>
-    <ul class="result">
-    @for(doc <- docs) {
-        <div class="row">
-            <div class="col s12 m10">
-                <div class="card horizontal blue-grey lighten-5">
-                    <div class="card-content">
-                        @if(doc.titleExists()) {
-                            <li class="card-title blue-text text-darken-3"><a href="@doc.getUrl()">@doc.getTitle()</a></li>
-                        }
-                        @if(doc.urlExists()) {
-                            <li class="url green-text text-darken-2">@doc.getUrl()</li>
-                        }
-                        @if(doc.highlightExists()) {
-                            <li class="highlights grey-text text-darken-3">
-                            @Html(doc.getHighlight())
-                            </li>
-                        }
+        <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+        <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+        <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <body>
+        <div style="width: 50%;
+            float: left;
+            padding-left: 10%">
+            <h4 class="grey-text text-darken-4">Search Results</h4>
+        </div>
+        <div style="width: 50%;
+            float: left">
+            <form method="get" action="/search" class="search-container">
+                <div class="searchWrap">
+                    <div class="search">
+                        <input type="text" class="searchTerm" placeholder="What are you looking for?" name="query">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <ul class="result">
+        @for(doc <- docs) {
+            <div class="row" id="cardResult">
+                <div class="col s12 m10">
+                    <div class="card horizontal blue-grey lighten-5">
+                        <div class="card-content">
+                            @if(doc.titleExists()) {
+                                <li class="card-title blue-text text-darken-3"><a href="@doc.getUrl()">@doc.getTitle()</a></li>
+                            }
+                            @if(doc.urlExists()) {
+                                <li class="url green-text text-darken-2">@doc.getUrl()</li>
+                            }
+                            @if(doc.highlightExists()) {
+                                <li class="highlights grey-text text-darken-3">
+                                @Html(doc.getHighlight())
+                                </li>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    }
-    </ul>
-}
+        }
+        </ul>
+    </body>
+</html>
