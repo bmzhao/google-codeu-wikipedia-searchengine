@@ -52,6 +52,15 @@ body{
   font-size: 20px;
 }
 
+.landingTitle {
+  width: 50%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00B4CC;
+}
+
 /*Resize the wrap to see the search bar change!*/
 .wrap{
   width: 30%;
