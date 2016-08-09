@@ -44,4 +44,12 @@ public class WikipediaDoc {
     public boolean highlightExists() {
         return highlight != null && !highlight.isEmpty();
     }
+
+
+    public void convertHighlightToBold() {
+        if (highlightExists()) {
+            this.highlight = this.highlight.replaceAll("<em>", "<strong>");
+            this.highlight = this.highlight.replaceAll("</em>", "</strong>");
+        }
+    }
 }

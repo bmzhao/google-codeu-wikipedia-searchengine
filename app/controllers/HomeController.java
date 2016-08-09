@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import io.searchbox.client.JestClient;
 import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
+import models.WikipedaDocsPage;
 import models.WikipediaDoc;
 import org.apache.commons.lang3.StringEscapeUtils;
 import play.Logger;
@@ -67,16 +68,16 @@ public class HomeController extends Controller {
             from = "0";
         }
 
-        String user_query = request().getQueryString("query");
-        user_query = StringEscapeUtils.escapeJava(user_query);
+        String userQuery = request().getQueryString("query");
+        userQuery = StringEscapeUtils.escapeJava(userQuery);
 
         String searchQuery = null;
 
         //if query is null perform match all query
-        if (user_query == null) {
+        if (userQuery == null) {
             searchQuery = matchAllQuery;
         } else {
-            searchQuery = String.format(multiMatchQuery, from, user_query);
+            searchQuery = String.format(multiMatchQuery, from, userQuery);
         }
 
         Search search = new Search.Builder(searchQuery)
@@ -118,10 +119,15 @@ public class HomeController extends Controller {
                     }
                 }
                 WikipediaDoc wikipediaDoc = new WikipediaDoc(title, url, highlight);
+
+
                 docs.add(wikipediaDoc);
             }
+            int currentFrom = Integer.parseInt(from);
 
-            return ok(views.html.search.render(docs));
+            WikipedaDocsPage page = new WikipedaDocsPage(docs,Integer.parseInt(from),totalResults, userQuery);
+
+            return ok(views.html.search.render(page));
         } catch (IOException e) {
             e.printStackTrace();
             return internalServerError();
