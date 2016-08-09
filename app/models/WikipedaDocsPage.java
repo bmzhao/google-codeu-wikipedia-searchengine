@@ -17,11 +17,13 @@ public class WikipedaDocsPage {
     private String leftDisabled;
     private String rightDisabled;
     private String paginationHTML;
+    private String query;
 
     // from: 0-based index of the search results
     public WikipedaDocsPage(List<WikipediaDoc> docs, int from, int totalResults, String query) {
         this.docs = docs;
         this.from = from;
+        this.query = query;
         this.totalResults = totalResults;
         this.maxPossiblePageNumber = totalResults / 10 + 1;
         this.currentPageNumber = from / 10 + 1;
@@ -36,7 +38,7 @@ public class WikipedaDocsPage {
         displayingHTMLStringBuilder.append(Math.min(from + 10, totalResults));
         displayingHTMLStringBuilder.append(" of ");
         displayingHTMLStringBuilder.append(totalResults);
-        displayingHTMLStringBuilder.append("</div>");
+        displayingHTMLStringBuilder.append(" results</div>");
         displayingHTML = displayingHTMLStringBuilder.toString();
 
         // !!!!!!!!!
@@ -54,7 +56,7 @@ public class WikipedaDocsPage {
         }
 
         StringBuilder pagination = new StringBuilder();
-        pagination.append("<center>");
+        // pagination.append("<center>");
         pagination.append("<div id=\"pageNumber\">");
         pagination.append("<ul class=\"paging\">").append('\n');
         pagination.append(" <li class=\"").append(leftDisabled)
@@ -89,7 +91,7 @@ public class WikipedaDocsPage {
         pagination.append(afterFrom);
         pagination.append("&query=").append(query)
                 .append("\"><i class=\"material-icons\">chevron_right</i></a></li>\n</ul></div>\n");
-        pagination.append("</center>");
+        // pagination.append("</center>");
         this.paginationHTML = pagination.toString();
     }
 
@@ -99,6 +101,10 @@ public class WikipedaDocsPage {
 
     public String getDisplayingHTML() {
         return displayingHTML;
+    }
+
+    public String getQuery() {
+        return query;
     }
 
     public String getPaginationHTML() {

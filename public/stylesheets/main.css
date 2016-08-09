@@ -52,6 +52,18 @@ body{
   font-size: 20px;
 }
 
+#pageNumber {
+  background: #ECEFF1;
+  border: 1px solid #CDCDCD;
+  border-radius: 8px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
 .displayHTML {
   padding-top: 5%;
   padding-left: 11%;
