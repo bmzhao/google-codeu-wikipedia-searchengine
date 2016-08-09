@@ -4,9 +4,10 @@
 @main("Search"){
     <div style="width: 50%;
         float: left;
-        padding-left: 10%">
+        padding-left: 11%">
         <h4 class="grey-text text-darken-4">Search Results</h4>
     </div>
+    @Html(docs.getDisplayingHTML)
     <div style="width: 50%;
         float: left">
         <form method="get" action="/search" class="search-container">
